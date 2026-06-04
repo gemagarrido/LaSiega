@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="La Siega — Un evento cultural contemporáneo nacido en Segovia. Cantimpalos, 23 · 24 Abril 2027."
+    />
+    <title>La Siega — Junte</title>
+
+    <!-- Google Fonts: DM Sans para cuerpo y UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ============================================================
+       CURSOR PERSONALIZADO AMBER
+       Activo solo en la sección manifiesto (desktop con ratón)
+       ============================================================ -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- ============================================================
+       ELEMENTOS FLOTANTES GLOBALES (decorativos, parallax por JS)
+       Estos elementos se mueven a distintas velocidades con el scroll.
+       Son SVG inline para evitar dependencias de imagen.
+       data-speed: velocidad de parallax (0.1 = muy lento, 0.5 = medio)
+       data-float: activa la animación continua de flotación CSS
+       ============================================================ -->
+    <div class="float-layer" aria-hidden="true">
+      <!-- ISOTIPO 01 — lateral derecho, aparece al ~15% de scroll -->
+      <div class="float-el float-espiga-1" data-speed="0.18" data-float="true">
+        <img src="assets/img/Isotipo_Blanco.svg" alt="" />
+      </div>
+
+      <!-- ISOTIPO 02 — lateral izquierdo (blanco) -->
+      <div class="float-el float-espiga-2" data-speed="0.12" data-float="true">
+        <img src="assets/img/Isotipo_Blanco.svg" alt="" />
+      </div>
+
+      <!-- ISOTIPO 03 — pequeña, zona media página (negro) -->
+      <div class="float-el float-espiga-3" data-speed="0.25" data-float="true">
+        <img src="assets/img/Isotipo_Negro.svg" alt="" />
+      </div>
+
+      <!-- HOZ ABSTRACTA — elemento geométrico editorial -->
+      <div class="float-el float-hoz" data-speed="0.08" data-float="true">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M 60 15 A 40 40 0 0 0 15 60"
+            stroke="currentColor"
+            stroke-width="3"
+            fill="none"
+            stroke-linecap="round"
+          />
+          <line
+            x1="60"
+            y1="15"
+            x2="65"
+            y2="8"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="15"
+            y1="60"
+            x2="8"
+            y2="65"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <circle cx="60" cy="15" r="2.5" fill="currentColor" />
+        </svg>
+      </div>
+
+      <!-- SOL CASTELLANO — círculo con rayos, estilo sello -->
+      <div class="float-el float-sol" data-speed="0.06" data-float="true">
+        <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+          <circle
+            cx="35"
+            cy="35"
+            r="10"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <!-- Rayos -->
+          <line
+            x1="35"
+            y1="10"
+            x2="35"
+            y2="18"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="35"
+            y1="52"
+            x2="35"
+            y2="60"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="10"
+            y1="35"
+            x2="18"
+            y2="35"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="52"
+            y1="35"
+            x2="60"
+            y2="35"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="18"
+            y1="18"
+            x2="23"
+            y2="23"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="47"
+            y1="47"
+            x2="52"
+            y2="52"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="52"
+            y1="18"
+            x2="47"
+            y2="23"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="18"
+            y1="52"
+            x2="23"
+            y2="47"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
+      <!-- PALABRAS TIPOGRÁFICAS FLOTANTES — sellos editoriales -->
+      <!-- Cada palabra tiene posición fija en CSS y se mueve con scroll via JS -->
+      <div
+        class="float-el float-word float-word-volver"
+        data-speed="0.14"
+        data-float="false"
+      >
+        VOLVER
+      </div>
+      <div
+        class="float-el float-word float-word-junte"
+        data-speed="0.20"
+        data-float="false"
+      >
+        JUNTE
+      </div>
+      <div
+        class="float-el float-word float-word-cantimpalos"
+        data-speed="0.10"
+        data-float="false"
+      >
+        CANTIMPALOS
+      </div>
+      <div
+        class="float-el float-word float-word-tierra"
+        data-speed="0.22"
+        data-float="false"
+      >
+        TIERRA
+      </div>
+      <div
+        class="float-el float-word float-word-abril"
+        data-speed="0.16"
+        data-float="false"
+      >
+        ABRIL
+      </div>
+
+      <!-- CÍRCULO DE TEXTURA — elemento gráfico de campo -->
+      <div
+        class="float-el float-circle-texture"
+        data-speed="0.07"
+        data-float="true"
+      >
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle
+            cx="50"
+            cy="50"
+            r="46"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="0.8"
+            stroke-dasharray="3 4"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="36"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="0.5"
+            stroke-dasharray="2 5"
+            opacity="0.6"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="0.5"
+            opacity="0.4"
+          />
+        </svg>
+      </div>
+
+      <!-- CRUZ GEOMÉTRICA — sello rural minimalista -->
+      <div class="float-el float-cruz" data-speed="0.30" data-float="true">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <line
+            x1="20"
+            y1="2"
+            x2="20"
+            y2="38"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="2"
+            y1="20"
+            x2="38"
+            y2="20"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+    </div>
+    <!-- /.float-layer -->
+
+    <!-- ============================================================
+       NAVEGACIÓN PRINCIPAL
+       Transparente sobre hero → sticky Ivory tras scroll
+       ============================================================ -->
+    <nav class="navbar" id="navbar">
+      <a href="#inicio" class="nav-logo" aria-label="La Siega — inicio">
+        <img
+          src="assets/img/Isotipo_Blanco.svg"
+          alt="La Siega"
+          class="nav-logo-light"
+        />
+        <img
+          src="assets/img/Isotipo_Negro.svg"
+          alt="La Siega"
+          class="nav-logo-dark"
+        />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#evento">El evento</a></li>
+        <li><a href="#programacion">Programación</a></li>
+        <li><a href="#territorio">El territorio</a></li>
+      </ul>
+
+      <a href="#entradas" class="nav-cta"
+        >Entradas <span class="nav-cta-arrow">→</span></a
+      >
+
+      <button
+        class="nav-hamburger"
+        id="menuToggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- MENÚ MOBILE DESPLEGABLE (cae desde arriba) -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-brand">LA SIEGA<em>Junte</em></span>
+        <button
+          class="mobile-menu-close"
+          id="menuClose"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="#evento" class="mobile-nav-link">El evento</a>
+        <a href="#programacion" class="mobile-nav-link">Programación</a>
+        <a href="#territorio" class="mobile-nav-link">El territorio</a>
+      </nav>
+      <a href="#entradas" class="mobile-menu-cta">Consigue tu entrada</a>
+      <div class="mobile-menu-social">
+        <a href="#" aria-label="Instagram">
+          <svg
+            class="social-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            />
+          </svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg
+            class="social-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <main>
+      <!-- ============================================================
+         ESCENA 01 — HERO PORTAL
+         Imagen fondo: assets/hero-campo.jpg
+         Imagen: campo de trigo castellano, luz de tarde ~19h, sin personas,
+         formato horizontal, colores dorados y verdes.
+         La imagen actúa como fondo parallax (capa más lenta).
+         ============================================================ -->
+      <section class="scene scene-hero" id="inicio">
+        <!-- Capa 1: fondo imagen (parallax más lento, JS controla translateY) -->
+        <div class="hero-bg" id="heroBg" data-parallax="0.4">
+          <!-- PLACEHOLDER: gradiente que simula el campo al atardecer.
+             Reemplazar por: <img src="assets/hero-campo.jpg" alt="Campo de trigo al atardecer en Castilla" class="hero-bg-img"> -->
+          <div class="hero-bg-gradient"></div>
+          <!-- Textura de grano sutil sobre la imagen -->
+          <div class="hero-grain"></div>
+        </div>
+
+        <!-- Capa 2: overlay degradado para legibilidad del texto -->
+        <div class="hero-overlay"></div>
+
+        <!-- Capa 3: espigas decorativas dentro del hero (parallax propio) -->
+        <div class="hero-espigas" aria-hidden="true">
+          <div class="hero-espiga-left" data-parallax="0.2">
+            <img src="assets/img/Isotipo_Blanco.svg" alt="" />
+          </div>
+          <div class="hero-espiga-right" data-parallax="0.15">
+            <img src="assets/img/Isotipo_Blanco.svg" alt="" />
+          </div>
+        </div>
+
+        <!-- Capa 4: contenido principal del hero -->
+        <div class="hero-content">
+          <div class="hero-meta-top reveal-fade" style="--delay: 0.3s">
+            <span>Cantimpalos, Segovia</span>
+            <span class="hero-meta-sep">·</span>
+            <span>23 · 24 Abril 2027</span>
+          </div>
+
+          <div class="hero-title-wrap">
+            <p class="hero-eyebrow reveal-fade" style="--delay: 0.5s">
+              Esto es
+            </p>
+            <!-- Logotipo SVG — sustituye el título tipográfico animado -->
+            <div
+              class="hero-title-svg reveal-fade"
+              style="--delay: 0.7s"
+              id="heroTitle"
+            >
+              <img
+                src="assets/img/Logotipo_Negro.svg"
+                alt="La Siega"
+                class="hero-title-img"
+              />
+              <span class="sr-only">La Siega</span>
+            </div>
+            <p class="hero-tagline reveal-fade" style="--delay: 1.4s">
+              Un lugar al que volver.
+            </p>
+          </div>
+
+          <div class="hero-bottom">
+            <a
+              href="#entradas"
+              class="btn-primary reveal-fade"
+              style="--delay: 1.7s"
+            >
+              Consigue tu entrada <span>→</span>
+            </a>
+            <!-- Indicador de scroll -->
+            <div
+              class="scroll-hint reveal-fade"
+              style="--delay: 2s"
+              aria-hidden="true"
+            >
+              <span class="scroll-hint-line"></span>
+              <span class="scroll-hint-label">Scroll</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         TRANSICIÓN HERO → MANIFIESTO
+         Banda de color Graphite que emerge desde abajo del hero
+         ============================================================ -->
+      <!-- <div class="scene-transition transition-dark" aria-hidden="true"></div> -->
+
+      <!-- ============================================================
+         ESCENA 02 — MANIFIESTO
+         Texto que aparece línea a línea según el scroll (scroll-driven).
+         Cursor Amber activo en desktop.
+         data-cursor-section="true" activa el cursor personalizado
+         ============================================================ -->
+      <section
+        class="scene scene-manifesto"
+        id="manifesto"
+        data-cursor-section="true"
+      >
+        <!-- Textura de grano sobre fondo oscuro -->
+        <div class="manifesto-grain" aria-hidden="true"></div>
+
+        <!-- Sol decorativo flotando en el fondo (opacity muy baja) -->
+        <div class="manifesto-sol-bg" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle
+              cx="100"
+              cy="100"
+              r="35"
+              fill="none"
+              stroke="#FFF4DF"
+              stroke-width="1"
+            />
+            <line
+              x1="100"
+              y1="20"
+              x2="100"
+              y2="50"
+              stroke="#FFF4DF"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <line
+              x1="100"
+              y1="150"
+              x2="100"
+              y2="180"
+              stroke="#FFF4DF"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <line
+              x1="20"
+              y1="100"
+              x2="50"
+              y2="100"
+              stroke="#FFF4DF"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <line
+              x1="150"
+              y1="100"
+              x2="180"
+              y2="100"
+              stroke="#FFF4DF"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <line
+              x1="40"
+              y1="40"
+              x2="62"
+              y2="62"
+              stroke="#FFF4DF"
+              stroke-width="1"
+              stroke-linecap="round"
+            />
+            <line
+              x1="138"
+              y1="138"
+              x2="160"
+              y2="160"
+              stroke="#FFF4DF"
+              stroke-width="1"
+              stroke-linecap="round"
+            />
+            <line
+              x1="160"
+              y1="40"
+              x2="138"
+              y2="62"
+              stroke="#FFF4DF"
+              stroke-width="1"
+              stroke-linecap="round"
+            />
+            <line
+              x1="40"
+              y1="160"
+              x2="62"
+              y2="138"
+              stroke="#FFF4DF"
+              stroke-width="1"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <div class="manifesto-inner">
+          <!-- Cada línea aparece al entrar en viewport con delay escalonado -->
+          <!-- Las clases .manifesto-line activan la animación de scroll-reveal por línea -->
+          <p class="manifesto-line manifesto-pre" data-manifesto-delay="0">
+            Sabemos lo que pasa.
+          </p>
+          <p class="manifesto-line manifesto-pre" data-manifesto-delay="1">
+            Te fuiste.
+          </p>
+          <h2 class="manifesto-line manifesto-main" data-manifesto-delay="2">
+            Y Segovia<br />sigue siendo tuya.
+          </h2>
+          <p class="manifesto-line manifesto-sub" data-manifesto-delay="3">
+            La Siega es la excusa<br />que llevabas esperando.
+          </p>
+          <p class="manifesto-line manifesto-location" data-manifesto-delay="4">
+            Cantimpalos · Abril 2027
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         ESCENA 03 — QUÉ ES LA SIEGA
+         Fondo Ivory, tres columnas editoriales
+         Imágenes:
+           assets/dulzaina.jpg — manos tocando dulzaina, primer plano
+           assets/jovenes-campo.jpg — jóvenes de espaldas al campo
+           assets/bordado.jpg — detalle de bordado castellano
+         ============================================================ -->
+      <section class="scene scene-que-es" id="evento">
+        <!-- Número de sección decorativo, muy grande, fondo -->
+        <div class="scene-number" aria-hidden="true">01</div>
+
+        <div class="que-es-header reveal-up">
+          <span class="section-eyebrow">Esto es</span>
+          <div class="section-logo-wrap" aria-label="La Siega">
+            <img
+              src="assets/img/Logotipo_Negro.svg"
+              alt="La Siega"
+              class="section-logo-img"
+            />
+          </div>
+        </div>
+
+        <div class="que-es-grid">
+          <article class="que-es-card reveal-up" style="--delay: 0s">
+            <div class="card-image-wrap reveal-blind">
+              <!-- Reemplazar por: <img src="assets/dulzaina.jpg" alt="Manos tocando una dulzaina"> -->
+              <div class="card-ph" style="--ph: #c3b99a"></div>
+            </div>
+            <span class="card-label">Un evento</span>
+            <p class="card-text">
+              Dos días en Cantimpalos donde la música, la gastronomía y la
+              cultura castellana se viven desde el presente.
+            </p>
+          </article>
+
+          <article class="que-es-card reveal-up" style="--delay: 0.15s">
+            <div class="card-image-wrap reveal-blind">
+              <!-- Reemplazar por: <img src="assets/jovenes-campo.jpg" alt="Jóvenes mirando el campo al atardecer"> -->
+              <div class="card-ph" style="--ph: #8a9e7a"></div>
+            </div>
+            <span class="card-label">Una excusa</span>
+            <p class="card-text">
+              Para volver. Para encontrarte con tu gente. Para descubrir que lo
+              tuyo también puede ser esto.
+            </p>
+          </article>
+
+          <article class="que-es-card reveal-up" style="--delay: 0.3s">
+            <div class="card-image-wrap reveal-blind">
+              <!-- Reemplazar por: <img src="assets/bordado.jpg" alt="Detalle de bordado del traje segoviano"> -->
+              <div class="card-ph" style="--ph: #a08060"></div>
+            </div>
+            <span class="card-label">Una forma de vivirlo</span>
+            <p class="card-text">
+              La tradición no se exhibe. Se viste, se baila, se come y se
+              comparte con las personas que quieres.
+            </p>
+          </article>
+        </div>
+
+        <div class="que-es-footer reveal-up" style="--delay: 0.4s">
+          <a href="#entradas" class="link-arrow"
+            >Saber más sobre el evento <span>→</span></a
+          >
+        </div>
+      </section>
+
+      <!-- ============================================================
+         TICKER BANDA AMBER
+         ============================================================ -->
+      <div
+        class="ticker-band"
+        aria-label="Fechas: 23 y 24 de Abril 2027, Cantimpalos, Segovia"
+      >
+        <div class="ticker-track" id="tickerTrack">
+          <span class="ticker-item">→ 23 · 24 ABRIL 2027</span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item">CANTIMPALOS, SEGOVIA</span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item ticker-isotipo"
+            ><img
+              src="assets/img/Isotipo_Negro.svg"
+              alt=""
+              class="ticker-isotipo-img" /></span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item">LA SIEGA</span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item">JUNTE</span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item">→ 23 · 24 ABRIL 2027</span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item">CANTIMPALOS, SEGOVIA</span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item ticker-isotipo"
+            ><img
+              src="assets/img/Isotipo_Negro.svg"
+              alt=""
+              class="ticker-isotipo-img" /></span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item">LA SIEGA</span
+          ><span class="ticker-sep">·</span>
+          <span class="ticker-item">JUNTE</span
+          ><span class="ticker-sep">·</span>
+        </div>
+      </div>
+
+      <!-- ============================================================
+         ESCENA 04 — PROGRAMACIÓN PREVIEW
+         Fondo Graphite oscuro
+         Imagen: assets/concierto-noche.jpg
+         (Concierto al aire libre, luz de noche cálida, atmósfera)
+         ============================================================ -->
+      <section class="scene scene-programacion" id="programacion">
+        <div class="scene-number light" aria-hidden="true">02</div>
+
+        <div class="prog-header reveal-up">
+          <span class="section-eyebrow light">Lo que pasa</span>
+          <h2 class="section-title-lg light">cuando vuelves</h2>
+          <div class="prog-divider"></div>
+        </div>
+
+        <div class="prog-layout">
+          <!-- Imagen lateral: sticky mientras se lee el programa -->
+          <div class="prog-image-col reveal-blind">
+            <!-- Reemplazar por: <img src="assets/concierto-noche.jpg" alt="Concierto al aire libre de noche"> -->
+            <div class="prog-img-ph"></div>
+            <!-- Sello decorativo sobre la imagen -->
+            <div class="prog-sello" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="none"
+                  stroke="#FFCC07"
+                  stroke-width="1.5"
+                  stroke-dasharray="4 3"
+                />
+                <text
+                  x="50"
+                  y="46"
+                  text-anchor="middle"
+                  font-family="'DM Sans',sans-serif"
+                  font-size="8"
+                  fill="#FFCC07"
+                  letter-spacing="3"
+                  font-weight="500"
+                >
+                  CANTIMPALOS
+                </text>
+                <text
+                  x="50"
+                  y="58"
+                  text-anchor="middle"
+                  font-family="'DM Sans',sans-serif"
+                  font-size="8"
+                  fill="#FFCC07"
+                  letter-spacing="2"
+                  font-weight="500"
+                >
+                  2027
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="prog-content-col">
+            <div class="prog-filters reveal-up">
+              <button class="filter-btn active" data-filter="all">Todo</button>
+              <button class="filter-btn" data-filter="musica">Música</button>
+              <button class="filter-btn" data-filter="actividades">
+                Actividades
+              </button>
+              <button class="filter-btn" data-filter="gastronomia">
+                Gastronomía
+              </button>
+            </div>
+
+            <div class="prog-day reveal-up" style="--delay: 0.1s">
+              <span class="prog-day-label">Viernes 23</span>
+              <ul class="prog-list">
+                <li class="prog-item" data-category="musica">
+                  <span class="prog-item-time">18:00</span>
+                  <span class="prog-item-name">Charanga de apertura</span>
+                  <span class="prog-item-tag">Música</span>
+                </li>
+                <li class="prog-item" data-category="actividades">
+                  <span class="prog-item-time">19:00</span>
+                  <span class="prog-item-name"
+                    >Taller del traje de batalla</span
+                  >
+                  <span class="prog-item-tag">Actividad</span>
+                </li>
+                <li class="prog-item" data-category="musica">
+                  <span class="prog-item-time">21:00</span>
+                  <span class="prog-item-name">Música de raíz en directo</span>
+                  <span class="prog-item-tag">Música</span>
+                </li>
+                <li class="prog-item" data-category="gastronomia">
+                  <span class="prog-item-time">20:30</span>
+                  <span class="prog-item-name"
+                    >Cena popular · Almuerzo del segador</span
+                  >
+                  <span class="prog-item-tag">Gastronomía</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="prog-day reveal-up" style="--delay: 0.2s">
+              <span class="prog-day-label">Sábado 24</span>
+              <ul class="prog-list">
+                <li class="prog-item" data-category="actividades">
+                  <span class="prog-item-time">12:00</span>
+                  <span class="prog-item-name">Apertura del recinto</span>
+                  <span class="prog-item-tag">Actividad</span>
+                </li>
+                <li class="prog-item" data-category="gastronomia">
+                  <span class="prog-item-time">14:00</span>
+                  <span class="prog-item-name"
+                    >Almuerzo popular con chorizo de Cantimpalos</span
+                  >
+                  <span class="prog-item-tag">Gastronomía</span>
+                </li>
+                <li class="prog-item" data-category="musica">
+                  <span class="prog-item-time">17:00</span>
+                  <span class="prog-item-name">Conciertos principales</span>
+                  <span class="prog-item-tag">Música</span>
+                </li>
+                <li class="prog-item" data-category="musica">
+                  <span class="prog-item-time">23:00</span>
+                  <span class="prog-item-name">DJ set hasta las 3h</span>
+                  <span class="prog-item-tag">Música</span>
+                </li>
+              </ul>
+            </div>
+
+            <a
+              href="#entradas"
+              class="link-arrow light reveal-up"
+              style="--delay: 0.3s"
+            >
+              Ver programación completa <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         ESCENA 05 — EL TERRITORIO (editorial)
+         Fondo Ivory, composición asimétrica
+         Imagen principal: assets/campo-segado.jpg
+         (Campo ya segado, cañas en la tierra, luz de tarde, sin personas)
+         Imágenes grid:
+           assets/bordado-detalle.jpg — textil castellano, macro
+           assets/dulzaina-manos.jpg — manos con instrumento
+           assets/mesa-popular.jpg  — mesa de comida compartida
+         ============================================================ -->
+      <section class="scene scene-territorio" id="territorio">
+        <div class="scene-number" aria-hidden="true">03</div>
+
+        <div class="territorio-eyebrow reveal-up">
+          <span class="section-eyebrow">La siega como símbolo</span>
+        </div>
+
+        <div class="territorio-layout">
+          <!-- Imagen sangra al borde izquierdo, parallax propio -->
+          <div class="territorio-image-wrap" id="territorioImg">
+            <div class="territorio-img-inner reveal-blind">
+              <!-- Reemplazar por: <img src="assets/campo-segado.jpg" alt="Campo segado en Segovia al atardecer"> -->
+              <div class="territorio-ph"></div>
+            </div>
+          </div>
+
+          <div class="territorio-text">
+            <p class="territorio-intro reveal-up">
+              Antes de ser un evento, la siega fue una forma de entender el
+              trabajo, el tiempo y los otros.
+            </p>
+            <p class="territorio-body reveal-up" style="--delay: 0.15s">
+              Un esfuerzo compartido.<br />
+              Una mesa al final del día.<br />
+              Una razón para estar juntos.
+            </p>
+            <p class="territorio-close reveal-up" style="--delay: 0.3s">
+              Eso es lo que recuperamos.<br />No la faena. El sentido.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grid de tres fotografías -->
+        <div class="territorio-foto-grid">
+          <div class="territorio-foto reveal-blind" style="--delay: 0s">
+            <!-- Reemplazar por: <img src="assets/bordado-detalle.jpg" alt="Detalle de bordado castellano"> -->
+            <div class="tf-ph" style="--ph: #b8a888"></div>
+          </div>
+          <div class="territorio-foto reveal-blind" style="--delay: 0.12s">
+            <!-- Reemplazar por: <img src="assets/dulzaina-manos.jpg" alt="Manos tocando la dulzaina"> -->
+            <div class="tf-ph" style="--ph: #6b7b5a"></div>
+          </div>
+          <div class="territorio-foto reveal-blind" style="--delay: 0.24s">
+            <!-- Reemplazar por: <img src="assets/mesa-popular.jpg" alt="Mesa de comida popular"> -->
+            <div class="tf-ph" style="--ph: #c4a87a"></div>
+          </div>
+        </div>
+
+        <div class="territorio-link reveal-up" style="--delay: 0.1s">
+          <a href="#" class="link-arrow"
+            >Conocer el territorio <span>→</span></a
+          >
+        </div>
+      </section>
+
+      <!-- ============================================================
+         ESCENA 06 — TRAJE DE BATALLA ★ MOMENTO WOW
+         Fondo Lemon Lime (#C3CC24) — ruptura visual total
+         Imagen: assets/traje-batalla.jpg
+         (Persona joven, mix prenda contemporánea + detalle textil castellano,
+          luz natural, recortada de forma irregular)
+         ============================================================ -->
+      <section class="scene scene-traje" id="traje">
+        <!-- Elementos flotantes propios de esta sección (SVG inline) -->
+        <div class="traje-floats" aria-hidden="true">
+          <!-- Hoz grande, muy transparente, esquina superior derecha -->
+          <div class="traje-float-hoz">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M 90 20 A 65 65 0 0 0 20 90"
+                stroke="#2D2D2E"
+                stroke-width="4"
+                fill="none"
+                stroke-linecap="round"
+                opacity="0.15"
+              />
+              <line
+                x1="90"
+                y1="20"
+                x2="100"
+                y2="10"
+                stroke="#2D2D2E"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.15"
+              />
+              <circle cx="90" cy="20" r="4" fill="#2D2D2E" opacity="0.15" />
+            </svg>
+          </div>
+          <!-- Sol pequeño -->
+          <div class="traje-float-sol">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="30"
+                cy="30"
+                r="9"
+                fill="none"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                opacity="0.25"
+              />
+              <line
+                x1="30"
+                y1="6"
+                x2="30"
+                y2="14"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.25"
+              />
+              <line
+                x1="30"
+                y1="46"
+                x2="30"
+                y2="54"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.25"
+              />
+              <line
+                x1="6"
+                y1="30"
+                x2="14"
+                y2="30"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.25"
+              />
+              <line
+                x1="46"
+                y1="30"
+                x2="54"
+                y2="30"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.25"
+              />
+              <line
+                x1="13"
+                y1="13"
+                x2="19"
+                y2="19"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.2"
+              />
+              <line
+                x1="41"
+                y1="41"
+                x2="47"
+                y2="47"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.2"
+              />
+              <line
+                x1="47"
+                y1="13"
+                x2="41"
+                y2="19"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.2"
+              />
+              <line
+                x1="13"
+                y1="47"
+                x2="19"
+                y2="41"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                opacity="0.2"
+              />
+            </svg>
+          </div>
+          <!-- Isotipo pequeño (negro) -->
+          <div class="traje-float-espiga">
+            <img src="assets/img/Isotipo_Negro.svg" alt="" />
+          </div>
+        </div>
+
+        <!-- Texto lateral rotado "BATALLA" — tipografía gigante decorativa -->
+        <div class="traje-side-text" aria-hidden="true">BATALLA</div>
+
+        <div class="traje-content">
+          <p class="traje-eyebrow reveal-up">Ven con tu</p>
+
+          <!-- Título con animación de aterrizaje por JS (traje-word class) -->
+          <h2 class="traje-title">
+            <span class="traje-word" id="traje-word-1">TRAJE</span>
+            <span class="traje-word" id="traje-word-2">DE BATALLA</span>
+          </h2>
+
+          <p class="traje-body reveal-up" style="--delay: 0.4s">
+            Ninguna pieza del traje segoviano es demasiado valiosa para quedarse
+            en el armario. Toma lo que tengas. Intervenlo. Llévalo.
+          </p>
+          <a href="#" class="link-arrow dark reveal-up" style="--delay: 0.55s">
+            Qué es el traje de batalla <span>→</span>
+          </a>
+        </div>
+
+        <!-- Imagen recortada con clip-path irregular -->
+        <div class="traje-image reveal-blind">
+          <!-- Reemplazar por: <img src="assets/traje-batalla.jpg" alt="Joven con traje de batalla"> -->
+          <div class="traje-img-ph"></div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         ESCENA 07 — CANTIMPALOS
+         Fondo Ivory, mapa SVG ilustrado + datos prácticos
+         ============================================================ -->
+      <section class="scene scene-cantimpalos" id="lugar">
+        <div class="scene-number" aria-hidden="true">04</div>
+
+        <div class="cantimpalos-map-area reveal-up">
+          <div
+            class="mapa-ilustrado"
+            aria-label="Mapa ilustrado de Cantimpalos con los espacios del evento"
+          >
+            <svg
+              viewBox="0 0 500 400"
+              xmlns="http://www.w3.org/2000/svg"
+              class="mapa-svg"
+            >
+              <line
+                x1="100"
+                y1="200"
+                x2="400"
+                y2="200"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+              />
+              <line
+                x1="250"
+                y1="80"
+                x2="250"
+                y2="320"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+              />
+              <line
+                x1="140"
+                y1="140"
+                x2="360"
+                y2="260"
+                stroke="#2D2D2E"
+                stroke-width="1"
+                opacity="0.4"
+              />
+              <line
+                x1="360"
+                y1="140"
+                x2="140"
+                y2="260"
+                stroke="#2D2D2E"
+                stroke-width="1"
+                opacity="0.4"
+              />
+              <rect
+                x="200"
+                y="165"
+                width="100"
+                height="70"
+                rx="4"
+                fill="#FFCC07"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+              />
+              <text
+                x="250"
+                y="198"
+                text-anchor="middle"
+                font-family="'DM Sans',sans-serif"
+                font-size="10"
+                fill="#2D2D2E"
+                font-weight="500"
+              >
+                Escenario
+              </text>
+              <text
+                x="250"
+                y="213"
+                text-anchor="middle"
+                font-family="'DM Sans',sans-serif"
+                font-size="9"
+                fill="#2D2D2E"
+                opacity="0.7"
+              >
+                La era principal
+              </text>
+              <circle
+                cx="150"
+                cy="200"
+                r="20"
+                fill="none"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+              />
+              <text
+                x="150"
+                y="204"
+                text-anchor="middle"
+                font-family="'DM Sans',sans-serif"
+                font-size="9"
+                fill="#2D2D2E"
+              >
+                Bares
+              </text>
+              <path
+                d="M 150 200 Q 180 170 200 200"
+                stroke="#FFCC07"
+                stroke-width="2.5"
+                fill="none"
+                stroke-dasharray="6 4"
+                stroke-linecap="round"
+              />
+              <circle
+                cx="380"
+                cy="200"
+                r="12"
+                fill="#C3CC24"
+                stroke="#2D2D2E"
+                stroke-width="1.5"
+              />
+              <text
+                x="380"
+                y="204"
+                text-anchor="middle"
+                font-family="'DM Sans',sans-serif"
+                font-size="8"
+                fill="#2D2D2E"
+              >
+                Acceso
+              </text>
+              <rect
+                x="80"
+                y="280"
+                width="50"
+                height="35"
+                rx="3"
+                fill="#B1C8E7"
+                stroke="#2D2D2E"
+                stroke-width="1"
+              />
+              <text
+                x="105"
+                y="302"
+                text-anchor="middle"
+                font-family="'DM Sans',sans-serif"
+                font-size="9"
+                fill="#2D2D2E"
+              >
+                Parking
+              </text>
+              <g transform="translate(20,20)">
+                <rect width="8" height="8" fill="#FFCC07" rx="1" />
+                <text
+                  x="12"
+                  y="8"
+                  font-family="'DM Sans',sans-serif"
+                  font-size="9"
+                  fill="#2D2D2E"
+                >
+                  Escenario principal
+                </text>
+                <circle
+                  cx="4"
+                  cy="20"
+                  r="4"
+                  fill="none"
+                  stroke="#2D2D2E"
+                  stroke-width="1"
+                />
+                <text
+                  x="12"
+                  y="24"
+                  font-family="'DM Sans',sans-serif"
+                  font-size="9"
+                  fill="#2D2D2E"
+                >
+                  Bares de la plaza
+                </text>
+                <line
+                  x1="0"
+                  y1="34"
+                  x2="8"
+                  y2="34"
+                  stroke="#FFCC07"
+                  stroke-width="2"
+                  stroke-dasharray="4 2"
+                />
+                <text
+                  x="12"
+                  y="38"
+                  font-family="'DM Sans',sans-serif"
+                  font-size="9"
+                  fill="#2D2D2E"
+                >
+                  Recorrido charanga
+                </text>
+              </g>
+              <text
+                x="250"
+                y="370"
+                text-anchor="middle"
+                font-family="'DM Sans',sans-serif"
+                font-size="10"
+                fill="#2D2D2E"
+                opacity="0.35"
+                letter-spacing="2"
+              >
+                CANTIMPALOS · SEGOVIA
+              </text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="cantimpalos-info">
+          <span class="section-eyebrow reveal-up">El pueblo</span>
+          <h2 class="section-title-md reveal-up" style="--delay: 0.1s">
+            es el escenario
+          </h2>
+          <p class="cantimpalos-body reveal-up" style="--delay: 0.2s">
+            Una era de pueblo. Los bares de siempre. La carpa donde ya sabes lo
+            que va a pasar.
+          </p>
+          <dl class="cantimpalos-data reveal-up" style="--delay: 0.3s">
+            <div>
+              <dt>Localización</dt>
+              <dd>Cantimpalos, Segovia</dd>
+            </div>
+            <div>
+              <dt>Distancia</dt>
+              <dd>A 15 km de Segovia capital</dd>
+            </div>
+            <div>
+              <dt>Acceso</dt>
+              <dd>Bus lanzadera · Parking libre</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         ESCENA 08 — COMUNIDAD / SOCIAL PROOF
+         Fondo Graphite
+         ============================================================ -->
+      <section class="scene scene-comunidad" id="comunidad">
+        <div class="comunidad-header reveal-up">
+          <span class="section-eyebrow light">Los que</span>
+          <h2 class="section-title-lg light">ya lo saben</h2>
+        </div>
+
+        <div class="quotes-grid">
+          <blockquote class="quote-card reveal-up" style="--delay: 0s">
+            <p>"Llevaba años esperando que alguien hiciera algo así."</p>
+            <cite>Ana, Segovia / Madrid</cite>
+          </blockquote>
+          <blockquote class="quote-card reveal-up" style="--delay: 0.12s">
+            <p>"No sé si es folclore o festival. Solo sé que voy."</p>
+            <cite>Pablo, 27 años</cite>
+          </blockquote>
+          <blockquote class="quote-card reveal-up" style="--delay: 0.24s">
+            <p>"Por fin un plan para volver que no sea la boda de alguien."</p>
+            <cite>Laura, Segovia</cite>
+          </blockquote>
+          <blockquote
+            class="quote-card reveal-up stat-card"
+            style="--delay: 0.36s"
+          >
+            <p>
+              "El 98,5% de jóvenes segovianos afirma que le interesan los
+              elementos tradicionales si se presentan desde códigos actuales."
+            </p>
+            <cite>Investigación propia, 2025</cite>
+          </blockquote>
+        </div>
+
+        <div class="comunidad-social reveal-up" style="--delay: 0.2s">
+          <a href="#" class="link-arrow light"
+            >Seguir en Instagram <span>→</span></a
+          >
+        </div>
+      </section>
+
+      <!-- ============================================================
+         ESCENA 09 — CTA FINAL / ENTRADAS ★ MOMENTO WOW
+         Fondo Bright Amber (#FFCC07) a pantalla completa
+         ============================================================ -->
+      <section class="scene scene-cta" id="entradas">
+        <!-- Isotipo decorativo de fondo, apenas visible, gira lentamente via JS -->
+        <div class="cta-bg-text" aria-hidden="true" id="ctaBgText">
+          <img src="assets/img/Isotipo_Negro.svg" alt="" />
+        </div>
+
+        <div class="cta-inner">
+          <h2 class="cta-title reveal-up">¿Vienes?</h2>
+
+          <div class="entradas-cards reveal-up" style="--delay: 0.2s">
+            <div class="entrada-card">
+              <div class="entrada-card-left">
+                <span class="entrada-tipo">Entrada general</span>
+                <span class="entrada-dias"
+                  >Viernes + Sábado · Acceso completo</span
+                >
+              </div>
+              <div class="entrada-card-right">
+                <span class="entrada-precio">5 €</span>
+                <a href="#" class="btn-dark">Comprar <span>→</span></a>
+              </div>
+            </div>
+            <div class="entrada-card">
+              <div class="entrada-card-left">
+                <span class="entrada-tipo">Bono copa</span>
+                <span class="entrada-dias"
+                  >Sábado nocturno · 5 consumiciones</span
+                >
+              </div>
+              <div class="entrada-card-right">
+                <span class="entrada-precio">12 €</span>
+                <a href="#" class="btn-dark">Comprar <span>→</span></a>
+              </div>
+            </div>
+          </div>
+
+          <p class="cta-legal reveal-up" style="--delay: 0.4s">
+            ¿Dudas? <a href="mailto:hola@lasiega.es">hola@lasiega.es</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer class="footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <img
+            src="assets/img/LogotipoJunte_Blanco.svg"
+            alt="La Siega Junte"
+            class="footer-brand-logo"
+          />
+          <p class="footer-brand-meta">
+            Cantimpalos, Segovia<br />23 · 24 Abril 2027
+          </p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <p class="footer-nav-title">Navegar</p>
+          <a href="#evento">El evento</a>
+          <a href="#programacion">Programación</a>
+          <a href="#territorio">El territorio</a>
+          <a href="#entradas">Entradas</a>
+          <a href="#">Prensa</a>
+        </nav>
+        <div class="footer-contact">
+          <p class="footer-nav-title">Contacto</p>
+          <a href="mailto:hola@lasiega.es">hola@lasiega.es</a>
+          <a href="#">@lasiega</a>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg
+                class="social-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg
+                class="social-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-watermark" aria-hidden="true">
+        <img src="assets/img/Logotipo_Blanco.svg" alt="" />
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © La Siega 2027 · Cantimpalos, Segovia · Todos los derechos reservados
+        </p>
+      </div>
+    </footer>
+
+    <!-- CTA flotante mobile (aparece al salir del hero) -->
+    <a
+      href="#entradas"
+      class="mobile-sticky-cta"
+      id="mobileStickyBtn"
+      aria-label="Consigue tu entrada"
+    >
+      Entradas <span>→</span>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>

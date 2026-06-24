@@ -193,15 +193,15 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
   animation-name:floatC !important;
 }
 
-/* Sol castellano — zona media derecha */
+/* Recurso 15 — zona media derecha */
 .float-sol {
   right:8vw; top:45%;
-  width:clamp(40px,5vw,65px);
-  color:var(--graphite);
-  opacity:0.12;
+  width:clamp(50px,6vw,90px);
+  opacity:0.20;
   animation-duration:9s !important;
   animation-name:floatB !important;
 }
+.float-sol img { width:100%; height:auto; display:block; }
 
 /* Círculo de textura — zona baja izquierda */
 .float-circle-texture {
@@ -244,6 +244,27 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .float-espiga-1 img,
 .float-espiga-2 img,
 .float-espiga-3 img { width:100%; height:auto; display:block; }
+
+/* Personajes flotantes — ilustraciones de identidad */
+.float-personaje img { width:100%; height:auto; display:block; }
+
+.float-personaje-1 {
+  right:5vw; top:52%;
+  width:clamp(40px,4.5vw,72px);
+  opacity:0.18;
+  --rot: 4deg;
+  animation-duration:7s !important;
+  animation-name:floatB !important;
+}
+
+.float-personaje-2 {
+  left:3vw; top:78%;
+  width:clamp(36px,4vw,64px);
+  opacity:0.15;
+  --rot:-6deg;
+  animation-duration:8.5s !important;
+  animation-name:floatC !important;
+}
 
 /* En mobile: los flotantes son menos visibles y más pequeños */
 @media (max-width:768px) {
@@ -564,6 +585,40 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
       #2d1a08 100%
     );
 }
+/* Carousel de imágenes del hero */
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: hero-fade 20s infinite;
+}
+
+.hero-carousel-slide:nth-child(1) { animation-delay: 0s; }
+.hero-carousel-slide:nth-child(2) { animation-delay: 5s; }
+.hero-carousel-slide:nth-child(3) { animation-delay: 10s; }
+.hero-carousel-slide:nth-child(4) { animation-delay: 15s; }
+
+@keyframes hero-fade {
+  0%    { opacity: 1; }
+  20%   { opacity: 1; }
+  25%   { opacity: 0; }
+  95%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+.hero-carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 45, 46, 0.5);
+  z-index: 2;
+}
+
 /* Si tienes la imagen: */
 .hero-bg-img {
   width:100%; height:115%; /* sobredimensionada para el parallax */
@@ -799,6 +854,19 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .card-text {
   font-size:var(--t-base); font-weight:300;
   line-height:1.65; color:var(--graphite);
+}
+
+/* Personaje entre imagen y label */
+.card-personaje {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0 0.5rem;
+}
+.card-personaje img {
+  height: clamp(44px, 6vw, 72px);
+  width: auto;
+  display: block;
 }
 
 .que-es-footer {
@@ -1094,10 +1162,14 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .mapa-ilustrado {
   background:var(--ivory);
   border:1px solid rgba(45,45,46,0.1);
-  border-radius:4px; padding:1rem;
-  aspect-ratio:5/4;
+  border-radius:4px;
+  overflow:hidden;
 }
-.mapa-svg { width:100%; height:100%; }
+.planos-img {
+  width:100%; height:auto;
+  display:block;
+  object-fit:contain;
+}
 
 .cantimpalos-info { display:flex; flex-direction:column; gap:1.5rem; padding-top:1rem; }
 .cantimpalos-info .section-eyebrow { margin-bottom:0.25rem; }
@@ -1195,6 +1267,170 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .cta-legal { font-size:var(--t-xs); font-weight:300; color:var(--graphite-60); }
 .cta-legal a { border-bottom:1px solid rgba(45,45,46,0.35); transition:border-color 0.2s; }
 .cta-legal a:hover { border-color:var(--graphite); }
+
+/* ================================================================
+   21b. ESCENA MERCH
+   ================================================================ */
+.scene-merch {
+  background:var(--ivory);
+  padding-top:clamp(5rem,10vh,9rem);
+  padding-bottom:clamp(5rem,10vh,9rem);
+}
+
+.merch-header { margin-bottom:clamp(2.5rem,5vw,4rem); }
+.merch-header .section-eyebrow { margin-bottom:0.5rem; }
+.merch-intro {
+  font-size:clamp(1rem,1.8vw,1.125rem); font-weight:300;
+  line-height:1.65; color:var(--graphite-60);
+  max-width:480px; margin-top:1rem;
+}
+
+.merch-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(1.5rem,3vw,2.5rem);
+  margin-bottom:clamp(2.5rem,5vw,4rem);
+}
+
+.merch-card { display:flex; flex-direction:column; gap:0.75rem; }
+
+.merch-img-wrap {
+  width:100%; aspect-ratio:3/4;
+  overflow:hidden; border-radius:2px;
+  background:var(--graphite); /* fallback oscuro para fondos blancos */
+}
+.merch-img-wrap img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 0.5s var(--ease-out);
+}
+.merch-card:hover .merch-img-wrap img { transform:scale(1.04); }
+
+.merch-card-info { display:flex; flex-direction:column; gap:4px; }
+.merch-card-name {
+  font-size:var(--t-sm); font-weight:500; color:var(--graphite);
+  line-height:1.4;
+}
+.merch-card-desc {
+  font-size:var(--t-xs); font-weight:300;
+  letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--graphite-60);
+}
+.merch-card-price {
+  font-family:var(--font-display);
+  font-size:1.5rem; font-weight:400;
+  color:var(--graphite); margin-top:4px;
+}
+
+.merch-footer {
+  padding-top:1.5rem;
+  border-top:1px solid rgba(45,45,46,0.1);
+}
+
+/* Hover igual que cards de que-es */
+.merch-card { transition:transform 0.3s var(--ease-out); }
+.merch-card:hover { transform:translateY(-6px); }
+
+@media (max-width:1024px) {
+  .merch-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:768px) {
+  .merch-grid { grid-template-columns:repeat(2,1fr); gap:1rem; }
+  .merch-card-name { font-size:var(--t-xs); }
+}
+
+/* ================================================================
+   21a. SECCIÓN TICKETS
+   ================================================================ */
+.scene-tickets { background: var(--ivory); padding-top: clamp(5rem,10vh,9rem); padding-bottom: clamp(5rem,10vh,9rem); }
+
+.tickets-header { margin-bottom: clamp(2.5rem,5vw,4rem); }
+.tickets-intro { font-size: clamp(1rem,1.8vw,1.125rem); font-weight: 300; line-height: 1.65; color: var(--graphite-60); max-width: 520px; margin-top: 1rem; }
+
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem,3vw,2.5rem);
+  margin-bottom: clamp(2.5rem,5vw,4rem);
+}
+
+.ticket-card { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.ticket-img-wrap {
+  width: 100%; overflow: hidden; border-radius: 2px;
+  background: var(--graphite);
+}
+.ticket-img-wrap img {
+  width: 100%; height: auto; display: block; object-fit: contain;
+  transition: transform 0.5s var(--ease-out);
+}
+.ticket-card:hover .ticket-img-wrap img { transform: scale(1.03); }
+
+.ticket-info { display: flex; flex-direction: column; gap: 4px; }
+.ticket-name { font-size: var(--t-sm); font-weight: 500; color: var(--graphite); line-height: 1.4; }
+.ticket-desc { font-size: var(--t-xs); font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite-60); }
+.ticket-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--graphite); margin-top: 4px; }
+
+/* Bonos */
+.bonos-area { margin-bottom: clamp(2.5rem,5vw,4rem); }
+.bonos-title { font-size: var(--t-md); font-weight: 400; color: var(--graphite); margin-bottom: 1.5rem; }
+
+.bonos-img-wrap {
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+.bonos-img-wrap img { width: 100%; height: auto; display: block; }
+
+.bonos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem,2vw,1.5rem);
+  border-top: 1px solid rgba(45,45,46,0.1);
+  padding-top: 1.5rem;
+}
+.bono-item { display: flex; flex-direction: column; gap: 4px; }
+.bono-name { font-size: var(--t-sm); font-weight: 500; color: var(--graphite); }
+.bono-desc { font-size: var(--t-xs); font-weight: 300; color: var(--graphite-60); }
+
+.tickets-footer { padding-top: 1.5rem; border-top: 1px solid rgba(45,45,46,0.1); }
+
+@media (max-width: 768px) {
+  .tickets-grid { grid-template-columns: 1fr; }
+  .bonos-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================================
+   21b. BANDA PERSONAJES
+   ================================================================ */
+.personajes-band {
+  background: var(--graphite);
+  overflow: hidden;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.personajes-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  animation: personajes-scroll 20s linear infinite;
+  width: max-content;
+}
+
+.personajes-strip {
+  height: 80px;
+  width: auto;
+  filter: invert(1) opacity(0.85);
+  flex-shrink: 0;
+}
+
+@keyframes personajes-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% / 3)); }
+}
+
+@media (max-width: 768px) {
+  .personajes-strip { height: 56px; }
+}
 
 /* ================================================================
    22. FOOTER

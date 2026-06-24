@@ -81,91 +81,9 @@
         </svg>
       </div>
 
-      <!-- SOL CASTELLANO — círculo con rayos, estilo sello -->
+      <!-- SOL / RECURSO 15 — personaje ilustrado, zona media derecha -->
       <div class="float-el float-sol" data-speed="0.06" data-float="true">
-        <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
-          <circle
-            cx="35"
-            cy="35"
-            r="10"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
-          <!-- Rayos -->
-          <line
-            x1="35"
-            y1="10"
-            x2="35"
-            y2="18"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-          <line
-            x1="35"
-            y1="52"
-            x2="35"
-            y2="60"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-          <line
-            x1="10"
-            y1="35"
-            x2="18"
-            y2="35"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-          <line
-            x1="52"
-            y1="35"
-            x2="60"
-            y2="35"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-          <line
-            x1="18"
-            y1="18"
-            x2="23"
-            y2="23"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-          <line
-            x1="47"
-            y1="47"
-            x2="52"
-            y2="52"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-          <line
-            x1="52"
-            y1="18"
-            x2="47"
-            y2="23"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-          <line
-            x1="18"
-            y1="52"
-            x2="23"
-            y2="47"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          />
-        </svg>
+        <img src="assets/img/personajes/Recurso 15.svg" alt="" />
       </div>
 
       <!-- PALABRAS TIPOGRÁFICAS FLOTANTES — sellos editoriales -->
@@ -267,6 +185,23 @@
           />
         </svg>
       </div>
+      <!-- PERSONAJE FLOTANTE 01 — dulzainero, zona derecha baja -->
+      <div
+        class="float-el float-personaje float-personaje-1"
+        data-speed="0.15"
+        data-float="true"
+      >
+        <img src="assets/img/personajes/Recurso 5.svg" alt="" />
+      </div>
+
+      <!-- PERSONAJE FLOTANTE 02 — bailarina, zona izquierda media -->
+      <div
+        class="float-el float-personaje float-personaje-2"
+        data-speed="0.20"
+        data-float="true"
+      >
+        <img src="assets/img/personajes/Recurso 8.svg" alt="" />
+      </div>
     </div>
     <!-- /.float-layer -->
 
@@ -292,6 +227,8 @@
         <li><a href="#evento">El evento</a></li>
         <li><a href="#programacion">Programación</a></li>
         <li><a href="#territorio">El territorio</a></li>
+        <li><a href="#merch">La tienda</a></li>
+        <li><a href="#tickets">Tickets</a></li>
       </ul>
 
       <a href="#entradas" class="nav-cta"
@@ -324,10 +261,17 @@
         <a href="#evento" class="mobile-nav-link">El evento</a>
         <a href="#programacion" class="mobile-nav-link">Programación</a>
         <a href="#territorio" class="mobile-nav-link">El territorio</a>
+        <a href="#merch" class="mobile-nav-link">La tienda</a>
+        <a href="#tickets" class="mobile-nav-link">Tickets</a>
       </nav>
       <a href="#entradas" class="mobile-menu-cta">Consigue tu entrada</a>
       <div class="mobile-menu-social">
-        <a href="#" aria-label="Instagram">
+        <a
+          href="https://www.instagram.com/lasiega.junte/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
           <svg
             class="social-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -365,11 +309,24 @@
          La imagen actúa como fondo parallax (capa más lenta).
          ============================================================ -->
       <section class="scene scene-hero" id="inicio">
-        <!-- Capa 1: fondo imagen (parallax más lento, JS controla translateY) -->
+        <!-- Capa 1: carrusel de imágenes con overlay oscuro -->
         <div class="hero-bg" id="heroBg" data-parallax="0.4">
-          <!-- PLACEHOLDER: gradiente que simula el campo al atardecer.
-             Reemplazar por: <img src="assets/hero-campo.jpg" alt="Campo de trigo al atardecer en Castilla" class="hero-bg-img"> -->
-          <div class="hero-bg-gradient"></div>
+          <div class="hero-carousel" aria-hidden="true">
+            <div class="hero-carousel-slide">
+              <img src="assets/img/fotos/carrusel-1.png" alt="" class="hero-bg-img" />
+            </div>
+            <div class="hero-carousel-slide">
+              <img src="assets/img/fotos/carrusel-2.png" alt="" class="hero-bg-img" />
+            </div>
+            <div class="hero-carousel-slide">
+              <img src="assets/img/fotos/carrusel-3.png" alt="" class="hero-bg-img" />
+            </div>
+            <div class="hero-carousel-slide">
+              <img src="assets/img/fotos/carrusel-4.png" alt="" class="hero-bg-img" />
+            </div>
+            <!-- Overlay negro #2d2d2e 50% -->
+            <div class="hero-carousel-overlay"></div>
+          </div>
           <!-- Textura de grano sutil sobre la imagen -->
           <div class="hero-grain"></div>
         </div>
@@ -591,8 +548,13 @@
         <div class="que-es-grid">
           <article class="que-es-card reveal-up" style="--delay: 0s">
             <div class="card-image-wrap reveal-blind">
-              <!-- Reemplazar por: <img src="assets/dulzaina.jpg" alt="Manos tocando una dulzaina"> -->
-              <div class="card-ph" style="--ph: #c3b99a"></div>
+              <img
+                src="assets/img/fotos/evento-calle.jpg"
+                alt="Joven con traje segoviano en la calle del pueblo durante La Siega"
+              />
+            </div>
+            <div class="card-personaje" aria-hidden="true">
+              <img src="assets/img/personajes/Recurso 5.svg" alt="" />
             </div>
             <span class="card-label">Un evento</span>
             <p class="card-text">
@@ -603,8 +565,13 @@
 
           <article class="que-es-card reveal-up" style="--delay: 0.15s">
             <div class="card-image-wrap reveal-blind">
-              <!-- Reemplazar por: <img src="assets/jovenes-campo.jpg" alt="Jóvenes mirando el campo al atardecer"> -->
-              <div class="card-ph" style="--ph: #8a9e7a"></div>
+              <img
+                src="assets/img/fotos/jovenes-campo.jpg"
+                alt="Joven con traje segoviano frente a la arquitectura de piedra castellana"
+              />
+            </div>
+            <div class="card-personaje" aria-hidden="true">
+              <img src="assets/img/personajes/Recurso 11.svg" alt="" />
             </div>
             <span class="card-label">Una excusa</span>
             <p class="card-text">
@@ -615,8 +582,13 @@
 
           <article class="que-es-card reveal-up" style="--delay: 0.3s">
             <div class="card-image-wrap reveal-blind">
-              <!-- Reemplazar por: <img src="assets/bordado.jpg" alt="Detalle de bordado del traje segoviano"> -->
-              <div class="card-ph" style="--ph: #a08060"></div>
+              <img
+                src="assets/img/fotos/bordado-detalle.jpg"
+                alt="Detalle del bordado del traje segoviano, terciopelo negro y falda roja"
+              />
+            </div>
+            <div class="card-personaje" aria-hidden="true">
+              <img src="assets/img/personajes/Recurso 14.svg" alt="" />
             </div>
             <span class="card-label">Una forma de vivirlo</span>
             <p class="card-text">
@@ -690,8 +662,10 @@
         <div class="prog-layout">
           <!-- Imagen lateral: sticky mientras se lee el programa -->
           <div class="prog-image-col reveal-blind">
-            <!-- Reemplazar por: <img src="assets/concierto-noche.jpg" alt="Concierto al aire libre de noche"> -->
-            <div class="prog-img-ph"></div>
+            <img
+              src="assets/img/fotos/concierto-noche.jpg"
+              alt="Concierto al atardecer frente al Acueducto de Segovia"
+            />
             <!-- Sello decorativo sobre la imagen -->
             <div class="prog-sello" aria-hidden="true">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -747,29 +721,27 @@
             <div class="prog-day reveal-up" style="--delay: 0.1s">
               <span class="prog-day-label">Viernes 23</span>
               <ul class="prog-list">
-                <li class="prog-item" data-category="musica">
-                  <span class="prog-item-time">18:00</span>
-                  <span class="prog-item-name">Charanga de apertura</span>
-                  <span class="prog-item-tag">Música</span>
-                </li>
                 <li class="prog-item" data-category="actividades">
-                  <span class="prog-item-time">19:00</span>
+                  <span class="prog-item-time">18:00</span>
                   <span class="prog-item-name"
                     >Taller del traje de batalla</span
                   >
                   <span class="prog-item-tag">Actividad</span>
                 </li>
-                <li class="prog-item" data-category="musica">
-                  <span class="prog-item-time">21:00</span>
-                  <span class="prog-item-name">Música de raíz en directo</span>
-                  <span class="prog-item-tag">Música</span>
+                <li class="prog-item" data-category="actividades">
+                  <span class="prog-item-time">19:00</span>
+                  <span class="prog-item-name">Taller de jotas segovianas</span>
+                  <span class="prog-item-tag">Actividad</span>
                 </li>
-                <li class="prog-item" data-category="gastronomia">
-                  <span class="prog-item-time">20:30</span>
-                  <span class="prog-item-name"
-                    >Cena popular · Almuerzo del segador</span
-                  >
-                  <span class="prog-item-tag">Gastronomía</span>
+                <li class="prog-item" data-category="actividades">
+                  <span class="prog-item-time">20:00</span>
+                  <span class="prog-item-name">Bingo castellanizado</span>
+                  <span class="prog-item-tag">Actividad</span>
+                </li>
+                <li class="prog-item" data-category="musica">
+                  <span class="prog-item-time">22:00</span>
+                  <span class="prog-item-name">Nuevo Mester de Juglaría</span>
+                  <span class="prog-item-tag">Música</span>
                 </li>
               </ul>
             </div>
@@ -777,26 +749,45 @@
             <div class="prog-day reveal-up" style="--delay: 0.2s">
               <span class="prog-day-label">Sábado 24</span>
               <ul class="prog-list">
-                <li class="prog-item" data-category="actividades">
+                <li class="prog-item" data-category="musica">
                   <span class="prog-item-time">12:00</span>
-                  <span class="prog-item-name">Apertura del recinto</span>
-                  <span class="prog-item-tag">Actividad</span>
+                  <span class="prog-item-name"
+                    >Vermú con charanga de dulzainas</span
+                  >
+                  <span class="prog-item-tag">Música</span>
                 </li>
                 <li class="prog-item" data-category="gastronomia">
                   <span class="prog-item-time">14:00</span>
                   <span class="prog-item-name"
-                    >Almuerzo popular con chorizo de Cantimpalos</span
+                    >Almuerzo del segador · Chorizo de Cantimpalos</span
                   >
                   <span class="prog-item-tag">Gastronomía</span>
                 </li>
+                <li class="prog-item" data-category="actividades">
+                  <span class="prog-item-time">16:30</span>
+                  <span class="prog-item-name"
+                    >Competición de juegos populares</span
+                  >
+                  <span class="prog-item-tag">Actividad</span>
+                </li>
                 <li class="prog-item" data-category="musica">
-                  <span class="prog-item-time">17:00</span>
-                  <span class="prog-item-name">Conciertos principales</span>
+                  <span class="prog-item-time">18:00</span>
+                  <span class="prog-item-name">Delameseta</span>
                   <span class="prog-item-tag">Música</span>
                 </li>
                 <li class="prog-item" data-category="musica">
+                  <span class="prog-item-time">20:00</span>
+                  <span class="prog-item-name">La M.O.D.A.</span>
+                  <span class="prog-item-tag">Música</span>
+                </li>
+                <li class="prog-item" data-category="gastronomia">
+                  <span class="prog-item-time">22:30</span>
+                  <span class="prog-item-name">Cena Sopas de ajo · 6 €</span>
+                  <span class="prog-item-tag">Gastronomía</span>
+                </li>
+                <li class="prog-item" data-category="musica">
                   <span class="prog-item-time">23:00</span>
-                  <span class="prog-item-name">DJ set hasta las 3h</span>
+                  <span class="prog-item-name">DJ LPR set</span>
                   <span class="prog-item-tag">Música</span>
                 </li>
               </ul>
@@ -834,8 +825,10 @@
           <!-- Imagen sangra al borde izquierdo, parallax propio -->
           <div class="territorio-image-wrap" id="territorioImg">
             <div class="territorio-img-inner reveal-blind">
-              <!-- Reemplazar por: <img src="assets/campo-segado.jpg" alt="Campo segado en Segovia al atardecer"> -->
-              <div class="territorio-ph"></div>
+              <img
+                src="assets/img/fotos/campo-segador.jpg"
+                alt="Segador en el campo castellano, luz dorada al atardecer"
+              />
             </div>
           </div>
 
@@ -858,16 +851,22 @@
         <!-- Grid de tres fotografías -->
         <div class="territorio-foto-grid">
           <div class="territorio-foto reveal-blind" style="--delay: 0s">
-            <!-- Reemplazar por: <img src="assets/bordado-detalle.jpg" alt="Detalle de bordado castellano"> -->
-            <div class="tf-ph" style="--ph: #b8a888"></div>
+            <img
+              src="assets/img/fotos/bordado-calceta.jpg"
+              alt="Detalle de calceta bordada del traje segoviano"
+            />
           </div>
           <div class="territorio-foto reveal-blind" style="--delay: 0.12s">
-            <!-- Reemplazar por: <img src="assets/dulzaina-manos.jpg" alt="Manos tocando la dulzaina"> -->
-            <div class="tf-ph" style="--ph: #6b7b5a"></div>
+            <img
+              src="assets/img/fotos/dulzaina-manos.jpg"
+              alt="Faldas de colores vivos en baile tradicional castellano"
+            />
           </div>
           <div class="territorio-foto reveal-blind" style="--delay: 0.24s">
-            <!-- Reemplazar por: <img src="assets/mesa-popular.jpg" alt="Mesa de comida popular"> -->
-            <div class="tf-ph" style="--ph: #c4a87a"></div>
+            <img
+              src="assets/img/fotos/mesa-popular.jpg"
+              alt="Joven con traje segoviano tradicional de Segovia"
+            />
           </div>
         </div>
 
@@ -1027,16 +1026,25 @@
           <p class="traje-body reveal-up" style="--delay: 0.4s">
             Ninguna pieza del traje segoviano es demasiado valiosa para quedarse
             en el armario. Toma lo que tengas. Intervenlo. Llévalo.
+            <br /><br />
+            Una camiseta de La Siega encima de la falda también cuenta.
+            <em>Castellanamente maja.</em>
           </p>
-          <a href="#" class="link-arrow dark reveal-up" style="--delay: 0.55s">
-            Qué es el traje de batalla <span>→</span>
+          <a
+            href="#merch"
+            class="link-arrow dark reveal-up"
+            style="--delay: 0.55s"
+          >
+            Ver la colección <span>→</span>
           </a>
         </div>
 
         <!-- Imagen recortada con clip-path irregular -->
         <div class="traje-image reveal-blind">
-          <!-- Reemplazar por: <img src="assets/traje-batalla.jpg" alt="Joven con traje de batalla"> -->
-          <div class="traje-img-ph"></div>
+          <img
+            src="assets/img/fotos/traje-batalla.jpg"
+            alt="Joven con camiseta castellanamente maja en el Acueducto de Segovia"
+          />
         </div>
       </section>
 
@@ -1047,206 +1055,13 @@
       <section class="scene scene-cantimpalos" id="lugar">
         <div class="scene-number" aria-hidden="true">04</div>
 
-        <div class="cantimpalos-map-area reveal-up">
-          <div
-            class="mapa-ilustrado"
-            aria-label="Mapa ilustrado de Cantimpalos con los espacios del evento"
-          >
-            <svg
-              viewBox="0 0 500 400"
-              xmlns="http://www.w3.org/2000/svg"
-              class="mapa-svg"
-            >
-              <line
-                x1="100"
-                y1="200"
-                x2="400"
-                y2="200"
-                stroke="#2D2D2E"
-                stroke-width="1.5"
-              />
-              <line
-                x1="250"
-                y1="80"
-                x2="250"
-                y2="320"
-                stroke="#2D2D2E"
-                stroke-width="1.5"
-              />
-              <line
-                x1="140"
-                y1="140"
-                x2="360"
-                y2="260"
-                stroke="#2D2D2E"
-                stroke-width="1"
-                opacity="0.4"
-              />
-              <line
-                x1="360"
-                y1="140"
-                x2="140"
-                y2="260"
-                stroke="#2D2D2E"
-                stroke-width="1"
-                opacity="0.4"
-              />
-              <rect
-                x="200"
-                y="165"
-                width="100"
-                height="70"
-                rx="4"
-                fill="#FFCC07"
-                stroke="#2D2D2E"
-                stroke-width="1.5"
-              />
-              <text
-                x="250"
-                y="198"
-                text-anchor="middle"
-                font-family="'DM Sans',sans-serif"
-                font-size="10"
-                fill="#2D2D2E"
-                font-weight="500"
-              >
-                Escenario
-              </text>
-              <text
-                x="250"
-                y="213"
-                text-anchor="middle"
-                font-family="'DM Sans',sans-serif"
-                font-size="9"
-                fill="#2D2D2E"
-                opacity="0.7"
-              >
-                La era principal
-              </text>
-              <circle
-                cx="150"
-                cy="200"
-                r="20"
-                fill="none"
-                stroke="#2D2D2E"
-                stroke-width="1.5"
-              />
-              <text
-                x="150"
-                y="204"
-                text-anchor="middle"
-                font-family="'DM Sans',sans-serif"
-                font-size="9"
-                fill="#2D2D2E"
-              >
-                Bares
-              </text>
-              <path
-                d="M 150 200 Q 180 170 200 200"
-                stroke="#FFCC07"
-                stroke-width="2.5"
-                fill="none"
-                stroke-dasharray="6 4"
-                stroke-linecap="round"
-              />
-              <circle
-                cx="380"
-                cy="200"
-                r="12"
-                fill="#C3CC24"
-                stroke="#2D2D2E"
-                stroke-width="1.5"
-              />
-              <text
-                x="380"
-                y="204"
-                text-anchor="middle"
-                font-family="'DM Sans',sans-serif"
-                font-size="8"
-                fill="#2D2D2E"
-              >
-                Acceso
-              </text>
-              <rect
-                x="80"
-                y="280"
-                width="50"
-                height="35"
-                rx="3"
-                fill="#B1C8E7"
-                stroke="#2D2D2E"
-                stroke-width="1"
-              />
-              <text
-                x="105"
-                y="302"
-                text-anchor="middle"
-                font-family="'DM Sans',sans-serif"
-                font-size="9"
-                fill="#2D2D2E"
-              >
-                Parking
-              </text>
-              <g transform="translate(20,20)">
-                <rect width="8" height="8" fill="#FFCC07" rx="1" />
-                <text
-                  x="12"
-                  y="8"
-                  font-family="'DM Sans',sans-serif"
-                  font-size="9"
-                  fill="#2D2D2E"
-                >
-                  Escenario principal
-                </text>
-                <circle
-                  cx="4"
-                  cy="20"
-                  r="4"
-                  fill="none"
-                  stroke="#2D2D2E"
-                  stroke-width="1"
-                />
-                <text
-                  x="12"
-                  y="24"
-                  font-family="'DM Sans',sans-serif"
-                  font-size="9"
-                  fill="#2D2D2E"
-                >
-                  Bares de la plaza
-                </text>
-                <line
-                  x1="0"
-                  y1="34"
-                  x2="8"
-                  y2="34"
-                  stroke="#FFCC07"
-                  stroke-width="2"
-                  stroke-dasharray="4 2"
-                />
-                <text
-                  x="12"
-                  y="38"
-                  font-family="'DM Sans',sans-serif"
-                  font-size="9"
-                  fill="#2D2D2E"
-                >
-                  Recorrido charanga
-                </text>
-              </g>
-              <text
-                x="250"
-                y="370"
-                text-anchor="middle"
-                font-family="'DM Sans',sans-serif"
-                font-size="10"
-                fill="#2D2D2E"
-                opacity="0.35"
-                letter-spacing="2"
-              >
-                CANTIMPALOS · SEGOVIA
-              </text>
-            </svg>
+                <div class="cantimpalos-map-area reveal-up">
+          <div class="mapa-ilustrado" aria-label="Plano del recinto de La Siega en Cantimpalos">
+            <img
+              src="assets/img/fotos/planos.png"
+              alt="Plano del recinto del evento La Siega en Cantimpalos"
+              class="planos-img"
+            />
           </div>
         </div>
 
@@ -1312,9 +1127,185 @@
         </div>
 
         <div class="comunidad-social reveal-up" style="--delay: 0.2s">
-          <a href="#" class="link-arrow light"
+          <a
+            href="https://www.instagram.com/lasiega.junte/"
+            target="_blank"
+            rel="noopener"
+            class="link-arrow light"
             >Seguir en Instagram <span>→</span></a
           >
+        </div>
+      </section>
+
+      <!-- ============================================================
+         ESCENA 08b — MERCH
+         Fondo Ivory, camisetas del evento
+         ============================================================ -->
+      <section class="scene scene-merch" id="merch">
+        <div class="scene-number" aria-hidden="true">05</div>
+
+        <div class="merch-header reveal-up">
+          <span class="section-eyebrow">La tienda</span>
+          <h2 class="section-title-lg">Llévate algo</h2>
+          <p class="merch-intro reveal-up" style="--delay: 0.1s">
+            Porque el traje de batalla también es esto. Llevas Segovia en el
+            cuerpo — no en el armario.
+          </p>
+        </div>
+
+        <div class="merch-grid">
+          <article class="merch-card reveal-up" style="--delay: 0s">
+            <div class="merch-img-wrap reveal-blind">
+              <img
+                src="assets/img/fotos/camiseta-verbena.png"
+                alt="Camiseta blanca 'certified verbena enjoyer' con isotipo de La Siega"
+              />
+            </div>
+            <div class="merch-card-info">
+              <span class="merch-card-name">Certified Verbena Enjoyer</span>
+              <span class="merch-card-desc">Camiseta oversize · Blanca</span>
+              <span class="merch-card-price">25 €</span>
+            </div>
+          </article>
+
+          <article class="merch-card reveal-up" style="--delay: 0.15s">
+            <div class="merch-img-wrap reveal-blind">
+              <img
+                src="assets/img/fotos/camiseta-segoviana.png"
+                alt="Camiseta negra 'Podrás sacar a un segoviano de Segovia...' con isotipo"
+              />
+            </div>
+            <div class="merch-card-info">
+              <span class="merch-card-name"
+                >Podrás sacar a un segoviano de Segovia…</span
+              >
+              <span class="merch-card-desc">Camiseta oversize · Negra</span>
+              <span class="merch-card-price">25 €</span>
+            </div>
+          </article>
+
+          <article class="merch-card reveal-up" style="--delay: 0.3s">
+            <div class="merch-img-wrap reveal-blind">
+              <img
+                src="assets/img/fotos/camiseta-castellana.png"
+                alt="Camiseta castellanamente maja de La Siega"
+              />
+            </div>
+            <div class="merch-card-info">
+              <span class="merch-card-name">Castellanamente Maja</span>
+              <span class="merch-card-desc">Camiseta oversize · Limitada</span>
+              <span class="merch-card-price">25 €</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="merch-footer reveal-up" style="--delay: 0.2s">
+          <a href="#entradas" class="link-arrow"
+            >Recoge la tuya en el evento <span>→</span></a
+          >
+        </div>
+      </section>
+
+      <!-- ============================================================
+         BANDA PERSONAJES — strip ilustrado con los personajes del manual
+         ============================================================ -->
+      <div class="personajes-band" aria-hidden="true">
+        <div class="personajes-track">
+          <img
+            src="assets/img/personajes/Recurso 2.svg"
+            alt=""
+            class="personajes-strip"
+          />
+          <img
+            src="assets/img/personajes/Recurso 2.svg"
+            alt=""
+            class="personajes-strip"
+            aria-hidden="true"
+          />
+          <img
+            src="assets/img/personajes/Recurso 2.svg"
+            alt=""
+            class="personajes-strip"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+
+
+      <!-- ============================================================
+         ESCENA TICKETS — Comida, Cena y Bonos
+         Fondo Ivory
+         ============================================================ -->
+      <section class="scene scene-tickets" id="tickets">
+        <div class="scene-number" aria-hidden="true">06</div>
+
+        <div class="tickets-header reveal-up">
+          <span class="section-eyebrow">La mesa</span>
+          <h2 class="section-title-lg">Come, bebe<br>y disfruta</h2>
+          <p class="tickets-intro reveal-up" style="--delay: 0.1s">
+            Tickets para el almuerzo del segador y la cena de sopas de ajo,
+            más bonos para la barra. Disponibles online y en taquilla.
+          </p>
+        </div>
+
+        <!-- Tickets comida y cena -->
+        <div class="tickets-grid reveal-up" style="--delay: 0.15s">
+          <article class="ticket-card">
+            <div class="ticket-img-wrap reveal-blind">
+              <img
+                src="assets/img/fotos/ticket-comida.png"
+                alt="Ticket Almuerzo del Segador — La Siega"
+              />
+            </div>
+            <div class="ticket-info">
+              <span class="ticket-name">Almuerzo del Segador</span>
+              <span class="ticket-desc">Sábado 24 · 14:00 h · Cantimpalos</span>
+              <span class="ticket-price">8 €</span>
+            </div>
+          </article>
+
+          <article class="ticket-card">
+            <div class="ticket-img-wrap reveal-blind">
+              <img
+                src="assets/img/fotos/ticket-cena.png"
+                alt="Ticket Cena Sopas de Ajo — La Siega"
+              />
+            </div>
+            <div class="ticket-info">
+              <span class="ticket-name">Cena Sopas de ajo</span>
+              <span class="ticket-desc">Sábado 24 · 22:30 h · Cantimpalos</span>
+              <span class="ticket-price">6 €</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bonos bebida -->
+        <div class="bonos-area reveal-up" style="--delay: 0.2s">
+          <h3 class="bonos-title">Bonos de barra</h3>
+          <div class="bonos-img-wrap reveal-blind">
+            <img
+              src="assets/img/fotos/bonocopas.png"
+              alt="Bonos de barra — Bonocopas, Bonocervé y Bonobota de La Siega"
+            />
+          </div>
+          <div class="bonos-grid">
+            <div class="bono-item">
+              <span class="bono-name">Bonocopas</span>
+              <span class="bono-desc">4 copas · Válido los dos días</span>
+            </div>
+            <div class="bono-item">
+              <span class="bono-name">Bonocervé</span>
+              <span class="bono-desc">4 cervezas · Válido los dos días</span>
+            </div>
+            <div class="bono-item">
+              <span class="bono-name">Bonobota</span>
+              <span class="bono-desc">4 botas de vino · Válido los dos días</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tickets-footer reveal-up" style="--delay: 0.3s">
+          <a href="#entradas" class="link-arrow">Ver también las entradas al evento <span>→</span></a>
         </div>
       </section>
 
@@ -1385,15 +1376,21 @@
           <a href="#evento">El evento</a>
           <a href="#programacion">Programación</a>
           <a href="#territorio">El territorio</a>
+          <a href="#merch">La tienda</a>
           <a href="#entradas">Entradas</a>
           <a href="#">Prensa</a>
         </nav>
         <div class="footer-contact">
           <p class="footer-nav-title">Contacto</p>
           <a href="mailto:hola@lasiega.es">hola@lasiega.es</a>
-          <a href="#">@lasiega</a>
+          <a
+            href="https://www.instagram.com/lasiega.junte/"
+            target="_blank"
+            rel="noopener"
+            >@lasiega.junte</a
+          >
           <div class="footer-social">
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/lasiega.junte/" target="_blank" rel="noopener" aria-label="Instagram">
               <svg
                 class="social-icon"
                 xmlns="http://www.w3.org/2000/svg"
